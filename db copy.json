@@ -35,6 +35,12 @@
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
       "price": 25.99
+    },
+    {
+      "id": 7,
+      "name": "Fiddle Leaf Fig",
+      "image": "./images/fiddle-leaf-fig.jpg",
+      "price": 55
     }
   ]
 }

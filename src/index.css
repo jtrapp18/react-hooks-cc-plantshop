@@ -52,22 +52,29 @@ main {
 }
 
 .new-plant-form {
-  padding: 2rem 1rem;
-  margin: 2rem 0;
   background-color: rgba(181, 250, 181, 0.5);
 }
 
-.new-plant-form form {
+.edit-plant-form {
+  background-color: rgba(218, 216, 114, 0.5);
+}
+
+.new-plant-form, .edit-plant-form {
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+}
+
+.new-plant-form form, .edit-plant-form form {
   display: flex;
   justify-content: center;
 }
 
-.new-plant-form input {
+.new-plant-form input, .edit-plant-form input {
   margin-right: 2rem;
   flex: 1;
 }
 
-.new-plant-form button {
+.new-plant-form button, .edit-plant-form button {
   width: 150px;
 }
 
@@ -134,4 +141,18 @@ input:focus {
   .card {
     width: calc(20% - 2rem);
   }
+}
+
+aside {
+  color: red;
+}
+
+.edit-mode {
+  background-color: yellow;
+}
+
+li {
+  margin-left: 20px;
+  font-style: italic;
+  list-style-type: "-";
 }
