@@ -3,7 +3,7 @@ import React from "react";
 function Search({searchInput, setSearchInput}) {
 
   function handleChange(event) {
-    setSearchInput(prevSearch=>event.target.value);
+    setSearchInput(event.target.value);
   }
 
   return (

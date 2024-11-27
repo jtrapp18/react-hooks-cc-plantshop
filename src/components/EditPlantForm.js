@@ -32,7 +32,7 @@ function EditPlantForm({editPlant, plantToEdit, setPlantToEdit, setShowEditForm}
     .then(plant=>{
       editPlant(plant);
       console.log("Edited:", plant);
-      setShowEditForm(showEditForm=> false);
+      setShowEditForm(false);
     })
     .catch(e=>console.error(e))
   }
@@ -46,7 +46,7 @@ function EditPlantForm({editPlant, plantToEdit, setPlantToEdit, setShowEditForm}
         <input type="number" name="price" step="0.01" placeholder="Price" value={plantToEdit.price} onChange={handleChange}/>
         <button type="submit">Submit Edits</button>
       </form>
-      <button onClick={()=>setShowEditForm(showEditForm=>false)}>Hide Form</button>
+      <button onClick={()=>setShowEditForm(false)}>Hide Form</button>
     </div>
   );
 }

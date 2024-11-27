@@ -14,7 +14,7 @@ describe('4th Deliverable', () => {
       const filteredPlants = queryAllByTestId('plant-item');
       expect(filteredPlants).toHaveLength(1);
     });
-    
+
     fireEvent.change(searchInput, { target: { value: 'p' } });
     
     await waitFor(() => {

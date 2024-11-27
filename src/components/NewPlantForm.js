@@ -7,7 +7,7 @@ function NewPlantForm({addPlant}) {
     price: "",
   }
   const [formData, setFormData] = useState(emptyObj);
-  const [passVal, setPassVal] = useState(false);
+  const [passVal, setPassVal] = useState(true);
 
   function handleChange(event) {
     const name = event.target.name;
@@ -29,11 +29,11 @@ function NewPlantForm({addPlant}) {
     event.preventDefault();
 
     if (missingItems().length > 0) {
-      setPassVal(val=>false);
+      setPassVal(false);
     }
 
     else  {
-      setPassVal(val=>true);
+      setPassVal(true);
 
       fetch("http://localhost:6001/plants", {
         method: "POST",
@@ -43,7 +43,7 @@ function NewPlantForm({addPlant}) {
       .then(res=>res.json())
       .then(plant=>{
         addPlant(plant);
-        setFormData(prevData=> emptyObj);
+        setFormData(emptyObj);
         console.log("Added:", plant);
       })
       .catch(e=>console.error(e))

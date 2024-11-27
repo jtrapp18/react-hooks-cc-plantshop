@@ -40,19 +40,16 @@ function PlantPage() {
 
   useEffect(()=> {
     fetch("http://localhost:6001/plants")
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
-      return res.json();
-    })
-    .then(plants=>setAllPlants(prevPlants=>plants))
+    .then(res=>res.json())
+    .then(plants=>setAllPlants(plants))
     .catch(e=>console.error(e))
   }, 
   [])
 
-  const filteredPlants = searchInput === "" ? allPlants : 
+  const filteredPlants = 
     allPlants.filter(plant=> plant.name.toLowerCase().includes(searchInput.toLowerCase()))
+
+  if (!allPlants) return <p>Loading...</p>
 
   return (
     <main>
