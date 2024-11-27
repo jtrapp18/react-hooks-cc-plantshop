@@ -34,7 +34,7 @@ function EditPlantForm({editPlant, plantToEdit, setPlantToEdit, setShowEditForm}
       console.log("Edited:", plant);
       setShowEditForm(false);
     })
-    .catch(e=>console.error(e))
+    .catch(e=>console.error(e));
   }
 
   return (

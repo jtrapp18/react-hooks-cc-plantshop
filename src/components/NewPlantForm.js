@@ -46,7 +46,7 @@ function NewPlantForm({addPlant}) {
         setFormData(emptyObj);
         console.log("Added:", plant);
       })
-      .catch(e=>console.error(e))
+      .catch(e=>console.error(e));
     }
   }
 
@@ -60,13 +60,13 @@ function NewPlantForm({addPlant}) {
         <button type="submit">Add Plant</button>
       </form>
       {!passVal && (
-        <aside>
+        <mark>
           <p>Please fill in the following items and resubmit:</p>
           <ul>
             {missingItems().map(item=>
               <li key={item}>{item}</li>)}
           </ul>
-        </aside>
+        </mark>
       )}
     </div>
   );

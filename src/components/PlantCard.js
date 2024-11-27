@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function PlantCard({removePlant, setShowEditForm, plantToEdit, setPlantToEdit, plant}) {
+function PlantCard({removePlant, showEditForm, setShowEditForm, plantToEdit, setPlantToEdit, plant}) {
 
   const {id, name, image, price} = plant;
   const [inStock, setInStock] = useState(true);
@@ -30,11 +30,11 @@ function PlantCard({removePlant, setShowEditForm, plantToEdit, setPlantToEdit, p
   }
 
   function handleEditClick() {
-    setShowEditForm(showEditForm=>true);
+    setShowEditForm(true);
     setPlantToEdit(plant);
   }
 
-  const inEditMode = plantToEdit.id === plant.id
+  const inEditMode = (plantToEdit.id === plant.id) && (showEditForm);
 
   return (
     <li className="card" data-testid="plant-item">
@@ -48,15 +48,15 @@ function PlantCard({removePlant, setShowEditForm, plantToEdit, setPlantToEdit, p
       )}
       <button onClick={handleEditClick} className={inEditMode ? "edit-mode" : ""}>Edit</button>
       {inEditMode && (
-        <aside>Edit the {name} in the form above</aside>
+        <mark>Edit details in the form above</mark>
       )}           
       <button onClick={()=>setShowConfirm(true)}>Delete</button>
       {showConfirm && (
-        <aside>
+        <mark>
           <p>Are you sure you want to delete the {name}? It is so beautiful and lively!</p>
           <button onClick={handleDelete}>Yes</button>
           <button onClick={() => setShowConfirm(false)}>Cancel</button>
-        </aside>
+        </mark>
       )}      
     </li>
   );

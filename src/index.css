@@ -143,8 +143,9 @@ input:focus {
   }
 }
 
-aside {
+mark {
   color: red;
+  background-color: white;
 }
 
 .edit-mode {

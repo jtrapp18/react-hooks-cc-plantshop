@@ -18,7 +18,7 @@ function PlantPage() {
   });
 
   function addPlant(newPlant) {
-    setAllPlants(prevPlants => [...prevPlants, newPlant])
+    setAllPlants(prevPlants => [...prevPlants, newPlant]);
   }
 
   function removePlant(plantId) {
@@ -34,7 +34,7 @@ function PlantPage() {
         else {
           return plant
         }
-        })
+        });
     })
   }
 
@@ -44,10 +44,10 @@ function PlantPage() {
     .then(plants=>setAllPlants(plants))
     .catch(e=>console.error(e))
   }, 
-  [])
+  []);
 
-  const filteredPlants = 
-    allPlants.filter(plant=> plant.name.toLowerCase().includes(searchInput.toLowerCase()))
+  const filteredPlants = searchInput ==="" ? allPlants :
+    allPlants.filter(plant=> plant.name.toLowerCase().includes(searchInput.toLowerCase()));
 
   // if (allPlants.length === 0) return <strong>Loading...</strong>;
 
