@@ -23,12 +23,18 @@ function EditPlantForm({editPlant, plantToEdit, setPlantToEdit, setShowEditForm}
       headers: {"Content-Type": "Application/JSON"},
       body: JSON.stringify(plantToEdit)
     })
-    .then(res=>res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(plant=>{
       editPlant(plant);
       console.log("Edited:", plant);
       setShowEditForm(showEditForm=> false);
     })
+    .catch(e=>console.error(e))
   }
 
   return (

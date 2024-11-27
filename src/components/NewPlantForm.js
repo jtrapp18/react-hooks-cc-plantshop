@@ -45,7 +45,9 @@ function NewPlantForm({addPlant}) {
         addPlant(plant);
         setFormData(prevData=> emptyObj);
         console.log("Added:", plant);
-      })}
+      })
+      .catch(e=>console.error(e))
+    }
   }
 
   return (

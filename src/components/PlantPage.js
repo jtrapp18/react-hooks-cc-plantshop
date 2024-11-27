@@ -40,8 +40,14 @@ function PlantPage() {
 
   useEffect(()=> {
     fetch("http://localhost:6001/plants")
-    .then(res=>res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(plants=>setAllPlants(prevPlants=>plants))
+    .catch(e=>console.error(e))
   }, 
   [])
 

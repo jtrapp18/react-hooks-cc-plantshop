@@ -17,7 +17,12 @@ function PlantCard({removePlant, setShowEditForm, plantToEdit, setPlantToEdit, p
       headers: {"Content-Type": "Application/JSON"},
       }
     )
-    .then(res=>res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(plant=>{
       removePlant(id);
       console.log("Deleted:", plant);
