@@ -49,7 +49,7 @@ function PlantPage() {
   const filteredPlants = 
     allPlants.filter(plant=> plant.name.toLowerCase().includes(searchInput.toLowerCase()))
 
-  if (allPlants.length === 0) return <strong>Loading...</strong>;
+  // if (allPlants.length === 0) return <strong>Loading...</strong>;
 
   return (
     <main>
